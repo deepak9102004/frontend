@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ferrule – Bike repair that comes to you</title>
+  <meta name="description" content="A mobile bike mechanic with a full workshop in a van. Book a fix, we come to your door.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a class="logo" href="#top" aria-label="Ferrule home">Ferrule</a>
+    <nav aria-label="Main">
+      <a href="#how">How it works</a>
+      <a href="#prices">Prices</a>
+      <a href="#faq">Questions</a>
+      <a class="btn btn-small" href="#book">Book a visit</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <h1>Your bike, fixed at your door.</h1>
+        <p class="lead">A mechanic arrives in a van with a full workshop. Most repairs take under an hour, and you don't carry anything anywhere.</p>
+        <a class="btn" href="#book">Book a visit</a>
+      </div>
+
+      <div class="picker" aria-labelledby="picker-title">
+        <h2 id="picker-title">What's your bike doing?</h2>
+        <div class="symptoms" id="symptoms" role="group" aria-label="Symptoms"></div>
+        <div class="result" id="result" aria-live="polite">
+          <p class="result-empty">Pick the closest match and we'll tell you the likely fix, time and price.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="section" id="how">
+      <h2>How a visit works</h2>
+      <ol class="steps">
+        <li>
+          <h3>Choose a slot</h3>
+          <p>Book online in under a minute. Slots run from 7 am to 7 pm, seven days a week.</p>
+        </li>
+        <li>
+          <h3>We park outside</h3>
+          <p>Your mechanic checks the bike, confirms the price with you, then gets to work. No surprise add-ons.</p>
+        </li>
+        <li>
+          <h3>Ride away</h3>
+          <p>Pay by card or UPI once you've taken it for a test spin. Every repair carries a 30-day guarantee.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Prices -->
+    <section class="section section-tint" id="prices">
+      <h2>Fixed prices, parts extra</h2>
+      <p class="section-note">Parts are charged at cost. We show you the price before we fit anything.</p>
+      <ul class="price-list" id="price-list"></ul>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <h2>Questions people ask</h2>
+      <div class="faq">
+        <details>
+          <summary>Do you fix e-bikes?</summary>
+          <p>We service the mechanical parts of most e-bikes: brakes, gears, wheels and tyres. We don't open motors or batteries.</p>
+        </details>
+        <details>
+          <summary>What if you can't fix it on the spot?</summary>
+          <p>If a repair needs a part we don't carry, we order it and return within two days. You only pay the visit fee once.</p>
+        </details>
+        <details>
+          <summary>Where do you work?</summary>
+          <p>Anywhere we can park within reach of you: driveway, street, office car park. Enter your area when you book and we'll confirm coverage.</p>
+        </details>
+        <details>
+          <summary>Can I change or cancel my slot?</summary>
+          <p>Yes. Message us up to two hours before the slot and we'll move it or cancel it at no charge.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Booking -->
+    <section class="section section-book" id="book">
+      <div class="book-intro">
+        <h2>Book a visit</h2>
+        <p>Tell us where and when. We'll confirm by message within 30 minutes.</p>
+      </div>
+
+      <form id="book-form" novalidate>
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required>
+          <p class="error" data-error-for="name"></p>
+        </div>
+        <div class="field">
+          <label for="phone">Phone number</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+          <p class="error" data-error-for="phone"></p>
+        </div>
+        <div class="field">
+          <label for="area">Your area</label>
+          <input id="area" name="area" type="text" autocomplete="address-level2" required>
+          <p class="error" data-error-for="area"></p>
+        </div>
+        <div class="field">
+          <label for="service">Service</label>
+          <select id="service" name="service" required></select>
+          <p class="error" data-error-for="service"></p>
+        </div>
+        <div class="field">
+          <label for="date">Preferred date</label>
+          <input id="date" name="date" type="date" required>
+          <p class="error" data-error-for="date"></p>
+        </div>
+        <div class="field field-wide">
+          <label for="notes">Anything we should know? <span class="optional">Optional</span></label>
+          <textarea id="notes" name="notes" rows="3"></textarea>
+        </div>
+        <button class="btn" type="submit">Request this visit</button>
+      </form>
+
+      <div class="confirmation" id="confirmation" role="status" hidden></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="logo">Ferrule</p>
+    <p>Mobile bike repair. <span id="year"></span></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
