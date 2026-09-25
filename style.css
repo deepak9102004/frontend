@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap');
+
+:root {
+  --body-teal:   #01130f;
+  --body-teal-dk:#011212;
+  --screen-bg:   #d7e4c6;
+  --screen-ink:  #2c3b28;
+  --key-num:     #edeae1;
+  --key-num-ink: #26251f;
+  --key-util:    #a7c4b8;
+  --key-util-ink:#16302a;
+  --key-op:      #e0764f;
+  --key-op-ink:  #2c140a;
+  --key-eq:      #f2b134;
+  --key-eq-ink:  #2c1d02;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 30% 20%, #fcc689 0%, #fcfefe 70%);
+  font-family: 'Space Grotesk', sans-serif;
+  padding: 24px;
+}
+
+.calculator {
+  width: 320px;
+  background: linear-gradient(155deg, var(--body-teal) 0%, var(--body-teal-dk) 100%);
+  border-radius: 28px;
+  padding: 22px 18px 26px;
+  box-shadow:
+    0 30px 60px -20px rgba(0, 0, 0, 0.6),
+    0 2px 0 rgba(255, 255, 255, 0.06) inset,
+    0 -6px 18px rgba(0, 0, 0, 0.35) inset;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px 14px;
+  color: #27f507;
+  letter-spacing: 0.14em;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.brand-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #07eb0e;
+  box-shadow: 0 0 8px 1px #6fe3a4;
+}
+
+.screen {
+  background: var(--screen-bg);
+  border-radius: 14px;
+  padding: 18px 16px 14px;
+  margin-bottom: 18px;
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.35) inset,
+    0 1px 0 rgba(255, 255, 255, 0.4);
+  overflow: hidden;
+}
+
+.history {
+  min-height: 16px;
+  text-align: right;
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  color: rgba(44, 59, 40, 0.55);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.display {
+  text-align: right;
+  font-family: 'DM Mono', monospace;
+  font-weight: 500;
+  font-size: 40px;
+  color: var(--screen-ink);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.key {
+  border: none;
+  border-radius: 12px;
+  height: 58px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 19px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow:
+    0 3px 0 rgba(0, 0, 0, 0.25),
+    0 5px 8px rgba(0, 0, 0, 0.25);
+  transition: transform 0.06s ease, box-shadow 0.06s ease;
+}
+
+.key:active {
+  transform: translateY(3px);
+  box-shadow:
+    0 0 0 rgba(0, 0, 0, 0.25),
+    0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.key--num {
+  background: var(--key-num);
+  color: var(--key-num-ink);
+}
+
+.key--util {
+  background: var(--key-util);
+  color: var(--key-util-ink);
+}
+
+.key--op {
+  background: var(--key-op);
+  color: var(--key-op-ink);
+  font-size: 21px;
+}
+
+.key--eq,
+.key--equals {
+  background: var(--key-eq);
+  color: var(--key-eq-ink);
+  font-size: 22px;
+}
+
+.key--zero {
+  grid-column: span 1;
+}
+
+.key.is-active-op {
+  outline: 2px solid rgba(255, 255, 255, 0.7);
+  outline-offset: -2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .key { transition: none; }
+}
+
+@media (max-width: 360px) {
+  .calculator { width: 100%; }
+}
